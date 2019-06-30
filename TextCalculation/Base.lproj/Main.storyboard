@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,57 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TextCalculation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YW1-nl-1LM">
+                                <rect key="frame" x="41.5" y="104.5" width="331" height="298.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please insert your formula in the box below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0Q-ml-AGv">
+                                <rect key="frame" x="31" y="64" width="352" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXB-Vh-6dG">
+                                <rect key="frame" x="0.0" y="453.5" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="I6E-Ei-3qG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Compute"/>
+                                <connections>
+                                    <action selector="computeButtonWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kGu-WT-5an"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="e0Q-ml-AGv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="6PN-0U-dLr"/>
+                            <constraint firstItem="uXB-Vh-6dG" firstAttribute="top" secondItem="YW1-nl-1LM" secondAttribute="bottom" constant="50.5" id="DKJ-9G-QeJ"/>
+                            <constraint firstItem="YW1-nl-1LM" firstAttribute="top" secondItem="e0Q-ml-AGv" secondAttribute="bottom" constant="20" id="Eku-rD-5T1"/>
+                            <constraint firstItem="e0Q-ml-AGv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="IhT-Ru-9Dl"/>
+                            <constraint firstItem="uXB-Vh-6dG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PW9-Zw-k3P"/>
+                            <constraint firstItem="uXB-Vh-6dG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Qdr-Kw-tK4"/>
+                            <constraint firstItem="YW1-nl-1LM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SVD-T0-j4x"/>
+                            <constraint firstItem="YW1-nl-1LM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="YRI-yW-8A8"/>
+                            <constraint firstItem="e0Q-ml-AGv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cs3-Sj-kDh"/>
+                            <constraint firstItem="YW1-nl-1LM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1/3" id="mzE-cU-oif"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="formulaTextView" destination="YW1-nl-1LM" id="qv3-ET-zGT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="347.82608695652175" y="87.723214285714278"/>
         </scene>
     </scenes>
 </document>
